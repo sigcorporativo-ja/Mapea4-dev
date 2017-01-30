@@ -20,6 +20,7 @@
       </style>
 
       <!-- CSS plugin here -->
+      <link href="../src/miplugin/facade/assets/css/miplugin.css" rel="stylesheet" />
 
    </head>
 
@@ -31,10 +32,18 @@
       <script type="text/javascript" src="http://mapea4-sigc.juntadeandalucia.es/vendor/browser-polyfill.js"></script>
       <script type="text/javascript" src="http://mapea4-sigc.juntadeandalucia.es/js/mapea.ol3.min.js"></script>
 
-      <!-- plugin dependencies here -->
-
       <!-- configuration -->
       <script type="text/javascript" src="http://mapea4-sigc.juntadeandalucia.es/js/configuration.js"></script>
+      
+
+     <!-- Testeo de fuentes, comentar si es testeo de compilados -->
+     <script type="text/javascript" src="../libraries/closure/closure/goog/base.js"></script>
+
+     <!-- plugin dependencies here -->
+     <script type="text/javascript" src="../src/miplugin/facade/js/mipluginControl.js"></script>
+     <script type="text/javascript" src="../src/miplugin/facade/js/miplugin.js"></script>
+     <script type="text/javascript" src="../src/miplugin/impl/ol3/js/mipluginControl.js"></script>
+
 
       <script type="application/javascript">
          var myMap = M.map({
@@ -42,8 +51,11 @@
          });
 
          // create here the plugin
+         var mp = new M.plugin.miPlugin();
 
-         // add here the plugin into the map
+        // add here the plugin into the map
+        myMap.addPlugin(mp);
+
       </script>
    </body>
 
