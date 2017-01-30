@@ -1,0 +1,1 @@
+goog.require('P.templates.pruebaplugin');

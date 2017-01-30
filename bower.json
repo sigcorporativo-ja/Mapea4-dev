@@ -1,0 +1,18 @@
+{
+   "name": "mapea4-dev",
+   "version": "4.0.0",
+   "description": "Proyecto de ayuda para el desarrollo de plugins de Mapea 4",
+   "keywords": [
+      "map",
+      "mapping",
+      "tools"
+   ],
+   "authors": [
+      "Junta de Andalucía"
+   ],
+   "license": "MIT",
+   "homepage": "http://mapea4-sigc.juntadeandalucia.es",
+   "dependencies": {
+      "closure": "https://github.com/google/closure-library.git"
+   }
+}

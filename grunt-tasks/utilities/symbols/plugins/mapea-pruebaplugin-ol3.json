@@ -1,0 +1,144 @@
+{
+  "symbols": [
+    {
+      "name": "M.plugin.PruebaPlugin",
+      "kind": "class",
+      "description": "Main facade plugin object. This class creates a plugin\nobject which has an implementation Object",
+      "stability": "stable",
+      "path": "/home/manueljmorillo/environment/workspace/mapea-dev/src/pruebaplugin/facade/js/pruebaplugin.js",
+      "extends": "M.Plugin",
+      "params": [
+        {
+          "name": "impl",
+          "types": [
+            "Object"
+          ]
+        }
+      ],
+      "provides": [
+        "P.plugin.PruebaPlugin"
+      ]
+    },
+    {
+      "name": "M.plugin.PruebaPlugin#addTo",
+      "kind": "function",
+      "description": "This function adds this plugin into the map",
+      "stability": "stable",
+      "path": "/home/manueljmorillo/environment/workspace/mapea-dev/src/pruebaplugin/facade/js/pruebaplugin.js",
+      "params": [
+        {
+          "name": "map",
+          "types": [
+            "M.Map"
+          ]
+        }
+      ],
+      "provides": [
+        "P.plugin.PruebaPlugin"
+      ]
+    },
+    {
+      "name": "M.impl.control.PruebaPluginControl",
+      "kind": "class",
+      "description": "Main constructor of the PruebaPluginControl.",
+      "stability": "stable",
+      "path": "/home/manueljmorillo/environment/workspace/mapea-dev/src/pruebaplugin/impl/ol3/js/pruebapluginControl.js",
+      "extends": "M.impl.Control",
+      "provides": [
+        "P.impl.control.PruebaPluginControl"
+      ]
+    },
+    {
+      "name": "M.impl.control.PruebaPluginControl#addTo",
+      "kind": "function",
+      "description": "This function adds the control to the specified map",
+      "stability": "stable",
+      "path": "/home/manueljmorillo/environment/workspace/mapea-dev/src/pruebaplugin/impl/ol3/js/pruebapluginControl.js",
+      "params": [
+        {
+          "name": "map",
+          "types": [
+            "M.Map"
+          ]
+        },
+        {
+          "name": "html",
+          "types": [
+            "HTMLElement"
+          ]
+        }
+      ],
+      "provides": [
+        "P.impl.control.PruebaPluginControl"
+      ]
+    },
+    {
+      "name": "M.impl.control.PruebaPluginControl#activate",
+      "kind": "function",
+      "stability": "stable",
+      "path": "/home/manueljmorillo/environment/workspace/mapea-dev/src/pruebaplugin/impl/ol3/js/pruebapluginControl.js",
+      "provides": [
+        "P.impl.control.PruebaPluginControl"
+      ]
+    },
+    {
+      "name": "M.impl.control.PruebaPluginControl#deactivate",
+      "kind": "function",
+      "stability": "stable",
+      "path": "/home/manueljmorillo/environment/workspace/mapea-dev/src/pruebaplugin/impl/ol3/js/pruebapluginControl.js",
+      "provides": [
+        "P.impl.control.PruebaPluginControl"
+      ]
+    },
+    {
+      "name": "M.control.PruebaPluginControl",
+      "kind": "class",
+      "description": "Main constructor of the class. Creates a PruebaPluginControl\ncontrol",
+      "stability": "stable",
+      "path": "/home/manueljmorillo/environment/workspace/mapea-dev/src/pruebaplugin/facade/js/pruebapluginControl.js",
+      "extends": "M.Control",
+      "provides": [
+        "P.control.PruebaPluginControl"
+      ]
+    },
+    {
+      "name": "M.control.PruebaPluginControl#createView",
+      "kind": "function",
+      "description": "This function creates the view",
+      "stability": "stable",
+      "path": "/home/manueljmorillo/environment/workspace/mapea-dev/src/pruebaplugin/facade/js/pruebapluginControl.js",
+      "params": [
+        {
+          "name": "map",
+          "types": [
+            "M.Map"
+          ]
+        }
+      ],
+      "provides": [
+        "P.control.PruebaPluginControl"
+      ]
+    },
+    {
+      "name": "M.control.PruebaPluginControl#getActivationButton",
+      "kind": "function",
+      "stability": "stable",
+      "path": "/home/manueljmorillo/environment/workspace/mapea-dev/src/pruebaplugin/facade/js/pruebapluginControl.js",
+      "params": [
+        {
+          "name": "html",
+          "types": [
+            "HTMLElement"
+          ]
+        }
+      ],
+      "provides": [
+        "P.control.PruebaPluginControl"
+      ]
+    }
+  ],
+  "defines": [],
+  "typedefs": [],
+  "externs": [],
+  "base": []
+}
