@@ -1,5 +1,5 @@
 # Mapea4-dev
-Utilidad para el desarrollo de plugins en Mapea4
+Utilidad para el desarrollo de plugins en [Mapea4](https://github.com/sigcorporativo-ja/Mapea4)
 
 **Requisitos e instalación de dependencias**
 
@@ -67,9 +67,9 @@ $ grunt check-plugins
 ```
 
 **3.- Build plugin**  
-Compila y minimiza los plugins creados. Aunque el plugin está compuesto por varios ficheros javascript y de estilo, para mejorar la eficiencia en su uso, la versión final de los plugins se compila y comprime, generando un único fichero css y un único fichero js:
+Compila y minimiza los plugins creados. Aunque el plugin está compuesto por varios ficheros javascript y de estilo, para mejorar la eficiencia en su uso, la versión final de los plugins se compila y comprime, generando un único fichero css y un único fichero js (*):
 ```shell
 $ grunt build-plugins
 ```
-Generará en la carpeta 'build/miplugin' los ficheros _css_ y _js_ comprimidos finales.
-
+Generará en la carpeta 'build/miplugin' los ficheros _css_ y _js_ comprimidos finales.  
+**(*) Importante: Antes de compilar, en el fichero facade/js/mipluginControl.js, método 'createView', eliminar la ruta hacia el template, y dejar únicamente el nombre de la plantilla html (por ejemplo, 'miplugin.html').**
