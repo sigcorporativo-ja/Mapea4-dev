@@ -13,6 +13,24 @@ goog.require('P.control.{{archetype.plugin.name}}Control');
  * @api stable
  */
 M.plugin.{{archetype.plugin.name}} = (function() {
+    /**
+      * Facade of the map
+      * @private
+      * @type {M.Map}
+      */
+     this.map_ = null;
+
+     /**
+      * Array of controls
+      * @private
+      * @type {Array}
+      */
+     this.controls_ = new Array();
+
+     /**
+      * add your variables
+      *
+      */
    goog.base(this);
 });
 goog.inherits(M.plugin.{{archetype.plugin.name}}, M.Plugin);
@@ -26,7 +44,11 @@ goog.inherits(M.plugin.{{archetype.plugin.name}}, M.Plugin);
  * @api stable
  */
 M.plugin.{{archetype.plugin.name}}.prototype.addTo = function(map) {
-   var miControl = new M.control.{{archetype.plugin.name}}Control();
-   map.addControls([miControl]);
+   this.controls_.push(new M.control.{{archetype.plugin.name}}Control());
+   this.map_ = map;
+   this.map_.addControls(this.controls_);
 };
 
+M.plugin.{{archetype.plugin.name}}.prototype.getControls = function() {
+   return this.controls_;
+};
