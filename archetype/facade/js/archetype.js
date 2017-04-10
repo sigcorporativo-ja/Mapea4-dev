@@ -25,7 +25,7 @@ M.plugin.{{archetype.plugin.name}} = (function() {
       * @private
       * @type {Array}
       */
-     this.controls_ = new Array();
+     this.controls_ = [];
 
      /**
       * add your variables
