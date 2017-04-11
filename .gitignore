@@ -3,6 +3,9 @@ build/
 libraries/
 node_modules/
 src/
+grunt-tasks/utilities/templates/
+grunt-tasks/utilities/symbols/plugins/
+grunt-tasks/utilities/exports/plugins/
 node
 target
 externs
