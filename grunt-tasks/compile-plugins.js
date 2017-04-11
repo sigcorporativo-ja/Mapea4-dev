@@ -107,7 +107,7 @@ module.exports = function(grunt) {
 
             // OUTPUT
             var output = path.join(ROOT, outputDir, pluginFolder,
-               'mapea.'.concat(pluginFolder).concat('.').concat(pluginImpl).concat('.min.js'));
+               pluginFolder.concat('.').concat(pluginImpl).concat('.min.js'));
 
             compile(closureDepsOpts, closureComplileOpts, output, function(err) {
                if (err != null) {

@@ -35,7 +35,7 @@ module.exports = function(grunt) {
          // facade/js/archetypeControl.js
          path.join(destDir, 'facade', 'js', 'archetypeControl.js'),
          // impl/ol3/js/archetypeControl.js
-         path.join(destDir, 'impl', 'ol3', 'js', 'archetypeControl.js'),
+         path.join(destDir, 'impl', 'ol', 'js', 'archetypeControl.js'),
          // templates/archetype.html
          path.join(destDir, 'templates', 'archetype.html')
       ];
