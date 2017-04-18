@@ -43,7 +43,7 @@ Según si nos encontramos en la fase de testeo del src, o de pruebas de la versi
  <!-- ficheros src del plugin, reemplazar por el js compilado si ya se dispone -->
  <script type="text/javascript" src="../src/miplugin/facade/js/mipluginControl.js"></script>
  <script type="text/javascript" src="../src/miplugin/facade/js/miplugin.js"></script>
- <script type="text/javascript" src="../src/miplugin/impl/ol3/js/mipluginControl.js"></script>
+ <script type="text/javascript" src="../src/miplugin/impl/ol/js/mipluginControl.js"></script>
 
  <!-- instrucciones de creacion del mapa -->
  <script type="application/javascript">
