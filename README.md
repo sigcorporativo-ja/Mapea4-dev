@@ -21,7 +21,7 @@ $ grunt create-plugin
 
 Creará la estructura de directorios y los ficheros necesarios para la construcción de un plugin dentro de la carpeta '_src/miplugin_'. Este plugin recién creado recibe el nombre de **arquetipo**, e incluye una funcionalidad básica de ejemplo 'Hola mundo'.
 
-En este punto, **deberemos desarrollar la funcionalidad específica de nuestro plugin**. Para ello, la [guía de desarrollo]() entra en detalle acerca de los métodos que lo forman y qué debe incluir cada uno.
+En este punto, **deberemos desarrollar la funcionalidad específica de nuestro plugin**. Para ello, la [guía de desarrollo](https://github.com/sigcorporativo-ja/Mapea4-dev/wiki) entra en detalle acerca de los métodos que lo forman y qué debe incluir cada uno.
   
 **Pruebas**  
 
