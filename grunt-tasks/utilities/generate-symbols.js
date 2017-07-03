@@ -8,6 +8,7 @@ var $infoPath;
 var $jsdoc;
 var $jsdocConfig;
 
+var isWindows = process.platform.indexOf('win') === 0;
 /**
  * Determine if source files have been changed, run JSDoc and write updated
  * info if there are any changes.
@@ -16,17 +17,23 @@ var $jsdocConfig;
  *     (or an error occurs).
  */
 function main(infoFile, jsdoc, paths, callback) {
-   console.log('      · Writing symbols JSON file: ' + infoFile);
+
    // init global vars
    $infoPath = infoFile;
    $jsdoc = jsdoc.path;
+   if (isWindows) {
+      $jsdoc += '.cmd';
+      $jsdoc = path.resolve($jsdoc);
+   }
+
    $jsdocConfig = jsdoc.config;
 
+
    async.waterfall([
-    spawnJSDoc.bind(null, paths),
-    addSymbolProvides,
-    writeInfo
-  ], callback);
+      spawnJSDoc.bind(null, paths),
+      addSymbolProvides,
+      writeInfo
+   ], callback);
 }
 
 /**
@@ -64,8 +71,9 @@ function parseOutput(output) {
  *     the callback will be called with null.
  */
 function spawnJSDoc(paths, callback) {
+
    if (paths.length === 0) {
-      process.nextTick(function () {
+      process.nextTick(function() {
          callback(null, null);
       });
       return;
@@ -79,15 +87,16 @@ function spawnJSDoc(paths, callback) {
       cwd: cwd
    });
 
-   child.stdout.on('data', function (data) {
+   child.stdout.on('data', function(data) {
       output += String(data);
    });
 
-   child.stderr.on('data', function (data) {
+
+   child.stderr.on('data', function(data) {
       errors += String(data);
    });
 
-   child.on('exit', function (code) {
+   child.on('exit', function(code) {
       if (code) {
          callback(new Error(errors || 'JSDoc failed with no output'));
       }
@@ -111,15 +120,15 @@ function spawnJSDoc(paths, callback) {
  * @param {function(Error, Array.<string>)} callback Called with a list of
  *     provides or any error.
  */
-var getProvides = async.memoize(function (srcPath, callback) {
-   fs.readFile(srcPath, function (err, data) {
+var getProvides = async.memoize(function(srcPath, callback) {
+   fs.readFile(srcPath, function(err, data) {
       if (err) {
          callback(err);
          return;
       }
       var provides = [];
       var matcher = /goog\.provide\('(.*)'\)/;
-      String(data).split('\n').forEach(function (line) {
+      String(data).split('\n').forEach(function(line) {
          var match = line.match(matcher);
          if (match) {
             provides.push(match[1]);
@@ -137,14 +146,14 @@ var getProvides = async.memoize(function (srcPath, callback) {
  */
 function addSymbolProvides(info, callback) {
    if (!info) {
-      process.nextTick(function () {
+      process.nextTick(function() {
          callback(null, null);
       });
       return;
    }
 
    function addProvides(symbol, callback) {
-      getProvides(symbol.path, function (err, provides) {
+      getProvides(symbol.path, function(err, provides) {
          if (err) {
             callback(err);
             return;
@@ -154,7 +163,7 @@ function addSymbolProvides(info, callback) {
       });
    }
 
-   async.map(info.symbols, addProvides, function (err, newSymbols) {
+   async.map(info.symbols, addProvides, function(err, newSymbols) {
       info.symbols = newSymbols;
       callback(err, info);
    });
@@ -172,7 +181,7 @@ function writeInfo(info, callback) {
       fse.outputFile($infoPath, str, callback);
    }
    else {
-      process.nextTick(function () {
+      process.nextTick(function() {
          callback(null);
       });
    }
@@ -184,7 +193,7 @@ function writeInfo(info, callback) {
  * function.
  */
 if (require.main === module) {
-   main(function (err) {
+   main(function(err) {
       if (err) {
          process.stderr.write(err.message + '\n');
          process.exit(1);
