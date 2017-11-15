@@ -5,10 +5,31 @@ var path = require('path');
    be specified inside this function)
 */
 module.exports = function(grunt) {
-
    // Project configuration
    grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
+
+      htmlbuild: {
+        dist: {
+          src: 'test/index.tpl.html',
+          dest: 'test/index.html',
+          beautify: true,
+          relative: true,
+          options: {
+            scripts: {
+                libs: ['src/<%= grunt.config("name").toLowerCase() %>/impl/**/*.js',
+                       'src/<%= grunt.config("name").toLowerCase() %>/facade/**/*Control.js',
+                       'src/<%= grunt.config("name").toLowerCase() %>/facade/**/*!(Control).js']            
+            },
+            styles: {
+                libs: 'src/<%= grunt.config("name").toLowerCase() %>/**/*.css'
+            },  
+            data: {
+              pluginName: '<%= grunt.config("name") %>'
+            }
+          }
+        }
+    },
 
       // resolve dependencies
       bower: {
@@ -57,8 +78,8 @@ module.exports = function(grunt) {
                   }]
                }*/],
                then: function(results, done) {
-                  grunt.option('plugin-options', results);
-                  done();
+                grunt.option('plugin-options', results);
+                done();
                }
             }
          },
@@ -257,6 +278,7 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-contrib-cssmin');
    grunt.loadNpmTasks('grunt-contrib-concat');
    grunt.loadNpmTasks('grunt-prompt');
+   grunt.loadNpmTasks('grunt-html-build');
 
    // load custom tasks
    grunt.loadTasks('./grunt-tasks');
@@ -265,7 +287,7 @@ module.exports = function(grunt) {
    grunt.registerTask('js-plugins', ['compile-templates', 'generate-symbols-plugins', 'generate-exports-plugins', 'compile-plugins']);
 
    // tasks
-   grunt.registerTask('create-plugin', ['bower', 'prompt', 'plugin-archetype']);
+   grunt.registerTask('create-plugin', ['bower', 'prompt', 'plugin-archetype', 'htmlbuild']);
    grunt.registerTask('build-plugins', ['clean:build', 'bower', 'css-plugins', 'js-plugins', 'clean:css']);
    grunt.registerTask('check-plugins', ['jshint:check']);
 

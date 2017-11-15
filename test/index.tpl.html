@@ -20,7 +20,9 @@
       </style>
 
       <!-- CSS plugin here -->
-<link type="text/css" rel="stylesheet" href="../src/popi/facade/assets/css/popi.css" />
+      <!-- build:style libs -->
+      <link href="../src/miplugin/facade/assets/css/miplugin.css" rel="stylesheet" />
+      <!-- /build -->
 
    </head>
 
@@ -40,24 +42,26 @@
      <script type="text/javascript" src="../libraries/closure/closure/goog/base.js"></script>
 
      <!-- plugin dependencies here -->
-<script type="text/javascript" src="../src/popi/impl/ol/js/popiControl.js"></script>
-<script type="text/javascript" src="../src/popi/facade/js/popiControl.js"></script>
-<script type="text/javascript" src="../src/popi/facade/js/popi.js"></script>
+     <!-- build:script libs -->
+     <script type="text/javascript" src="../src/miplugin/facade/js/mipluginControl.js"></script>
+     <script type="text/javascript" src="../src/miplugin/facade/js/miplugin.js"></script>
+     <script type="text/javascript" src="../src/miplugin/impl/ol/js/mipluginControl.js"></script>
+     <!-- /build -->
 
-      
+      <!-- build:process -->
       <script type="application/javascript">
          var myMap = M.map({
             container: 'mapjs'
          });
             
          // create here the plugin
-         var mp = new M.plugin.Popi();
+         var mp = new M.plugin.<%= pluginName %>();
 
         // add here the plugin into the map
         myMap.addPlugin(mp);
 
       </script>
-      
+      <!-- /build -->
    </body>
 
 </html>
